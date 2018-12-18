@@ -698,20 +698,19 @@ void Make_move(Point TargetPos, int mode){
     desce();
     _delay_ms(1000);
 
-    /*Testing the interrupt*/
+    /*POsition inicialization*/
     motor1.step=NSTEP1;
     motor1.t_between_step=1;
     motor1.dir=CLOCKWISE;
     motor2.step=NSTEP2;
     motor2.t_between_step=1;
     motor2.dir=COUNTERCLOCKWISE;
-    
-    while(motor1.step || motor2.step) printf("WORKING\n\r");
-    printf("%d %d", motor1.step, motor2.step);
-    /* Start - move motors till it touch the sensor then we knonw the position*/
+    while(motor1.step || motor2.step);
+    MyPos.x = 20; //check if it is right
+    MyPos.y =0;
 
-    //MyPos.x = 20;
-    //MyPos.y =0;
+
+
     InverseKinematics(Origin, MyPos, &MyPos.theta1, &MyPos.theta2);
     //Point TargetPos
     //int x;
